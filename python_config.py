@@ -50,6 +50,8 @@ def load(path):
     except Exception as e:
         raise Error("Error while parsing configuration file '{0}': {1}", path, e)
 
+    return config
+
 
 def _validate_value(key, value):
     """Validates a configuration file value."""
