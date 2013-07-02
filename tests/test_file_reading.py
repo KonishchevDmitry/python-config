@@ -1,4 +1,4 @@
-"""Test config file reading."""
+"""Test configuration file reading."""
 
 from __future__ import unicode_literals
 
