@@ -1,10 +1,13 @@
-"""Configuration file module."""
+"""Python configuration file parser."""
 
 from __future__ import unicode_literals
 
 import imp
+import sys
 
-from pcore import PY3, str
+PY2 = sys.version_info < (3,)
+if PY2:
+    str = unicode
 
 
 class Error(Exception):
@@ -48,7 +51,7 @@ class _ValidationError(Error):
 
 
 def load(path, contents=None):
-    """Loads the configuration file."""
+    """Loads a configuration file."""
 
     config_module = imp.new_module("config")
     config_module.__file__ = path
@@ -77,12 +80,11 @@ def load(path, contents=None):
     return config
 
 
-# TODO: reject tuple in keys
 def _validate_value(key, value):
     """Validates a configuration file value."""
 
     valid_types = ( dict, set, list, tuple, str, bytes, int, float )
-    if not PY3:
+    if PY2:
         valid_types += ( long, )
 
     value_type = type(value)
