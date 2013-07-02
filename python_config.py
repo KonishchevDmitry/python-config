@@ -11,7 +11,7 @@ if PY2:
 
 
 class Error(Exception):
-    """The base class for exceptions that our code throws."""
+    """The base class for all exceptions that the module raises."""
 
     def __init__(self, error, *args):
         super(Error, self).__init__(error.format(*args) if args else error)
@@ -22,7 +22,7 @@ class FileReadingError(Error):
 
     def __init__(self, path, error):
         super(FileReadingError, self).__init__(
-            "Error while reading configuration file '{0}': {1}.", path, error.strerror)
+            "Error while reading '{0}' configuration file: {1}.", path, error.strerror)
         self.errno = error.errno
 
 
@@ -31,21 +31,24 @@ class ParsingError(Error):
 
     def __init__(self, path, error):
         super(ParsingError, self).__init__(
-            "Error while parsing configuration file '{0}': {1}.", path, error)
+            "Error while parsing '{0}' configuration file: {1}.", path, error)
 
 
 class ValidationError(Error):
+    """Error during validation of a configuration file."""
 
-    def __init__(self, path, option, error):
+    def __init__(self, path, option_name, error):
         super(ValidationError, self).__init__(
-            "Error while parsing configuration file '{0}': {1}.", path, error)
-        self.option = option
+            "Error while parsing '{0}' configuration file: {1}.", path, error)
+        self.option_name = option_name
 
 
 class _ValidationError(Error):
-    def __init__(self, option, *args):
+    """Same as ValidationError, but for internal usage."""
+
+    def __init__(self, option_name, *args):
         super(_ValidationError, self).__init__(*args)
-        self.option = option
+        self.option_name = option_name
 
 
 
@@ -75,7 +78,7 @@ def load(path, contents=None):
             try:
                 config[key] = _validate_value(key, value)
             except _ValidationError as e:
-                raise ValidationError(path, e.option, e)
+                raise ValidationError(path, e.option_name, e)
 
     return config
 
