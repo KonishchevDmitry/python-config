@@ -2,7 +2,7 @@
 
 from __future__ import unicode_literals
 
-from setuptools import find_packages, setup
+from setuptools import setup
 from setuptools.command.test import test as Test
 
 
@@ -44,7 +44,7 @@ if __name__ == "__main__":
             ],
             platforms = [ "unix", "linux", "osx" ],
 
-            packages = find_packages(),
+            py_modules = [ "python_config" ],
 
             cmdclass = { "test": PyTest },
             tests_require = [ "pytest" ],
