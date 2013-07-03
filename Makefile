@@ -1,6 +1,7 @@
 .PHONY: build check install dist srpm rpm pypi clean
 
 NAME = python-config
+RPM_NAME := $(NAME)
 PYTHON := python
 
 build:
@@ -10,7 +11,7 @@ check:
 	$(PYTHON) setup.py test
 
 install:
-	$(PYTHON) setup.py install --skip-build
+	$(PYTHON) setup.py install --skip-build $(INSTALL_FLAGS)
 
 dist:
 	$(PYTHON) setup.py sdist
