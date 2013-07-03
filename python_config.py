@@ -87,7 +87,7 @@ def load(path, contents=None):
     for option, value in config_module.__dict__.items():
         if not option.startswith("_") and option.isupper():
             try:
-                config[option] = _validate_value(option, value)
+                config[option.lower()] = _validate_value(option, value)
             except _ValidationError as e:
                 raise ValidationError(path, e)
 

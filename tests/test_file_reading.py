@@ -13,7 +13,7 @@ from python_config import FileReadingError
 
 
 def test_reading():
-    assert python_config.load("tests/test.conf") == { "KEY": "VALUE" }
+    assert python_config.load("tests/test.conf") == { "key": "value" }
 
 
 def test_missing_file():

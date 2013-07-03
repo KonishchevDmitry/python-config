@@ -47,32 +47,32 @@ DICT_VALUE = {
 }
     """)
 
-    assert type(config["INT_VALUE"]) == int
-    assert type(config["FLOAT_VALUE"]) == float
+    assert type(config["int_value"]) is int
+    assert type(config["float_value"]) is float
 
-    assert type(config["BYTES_VALUE"]) == str
-    assert type(config["STRING_VALUE"]) == str
+    assert type(config["bytes_value"]) is str
+    assert type(config["string_value"]) is str
 
     if PY2:
-        assert type(config["LONG_VALUE"]) == long
+        assert type(config["long_value"]) is long
 
-    assert type(config["SET_VALUE"]) == list
-    config["SET_VALUE"] = sorted(config["SET_VALUE"])
+    assert type(config["set_value"]) is list
+    config["set_value"] = sorted(config["set_value"])
 
     valid_config = {
-        "INT_VALUE": 1,
-        "FLOAT_VALUE": 3.3,
+        "int_value": 1,
+        "float_value": 3.3,
 
-        "BYTES_VALUE": "bytes value",
-        "STRING_VALUE": "string value",
+        "bytes_value": "bytes value",
+        "string_value": "string value",
 
-        "TUPLE_VALUE": [ "a", 1 ],
+        "tuple_value": [ "a", 1 ],
 
-        "LIST_VALUE": [ "b", 2 ],
+        "list_value": [ "b", 2 ],
 
-        "SET_VALUE": sorted(( "a", "b", "c" )),
+        "set_value": sorted(( "a", "b", "c" )),
 
-        "DICT_VALUE": {
+        "dict_value": {
             1:   "number",
             "s": "string",
             "d": {
@@ -83,7 +83,7 @@ DICT_VALUE = {
     }
 
     if PY2:
-        valid_config["LONG_VALUE"] = 0
+        valid_config["long_value"] = 0
 
     assert config == valid_config
 
