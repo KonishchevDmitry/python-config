@@ -10,7 +10,7 @@ if _PY2:
     str = unicode
 
 
-_BASIC_TYPES = (int, float, bytes, str)
+_BASIC_TYPES = (bool, int, float, bytes, str)
 """Python basic types."""
 
 if _PY2:

@@ -20,6 +20,7 @@ import sys
 some_variable = 0
 _UNDERSCORE_VALUE = 0
 
+BOOL_VALUE = False
 INT_VALUE = 1
 FLOAT_VALUE = 3.3
 
@@ -47,6 +48,7 @@ DICT_VALUE = {
 }
     """.strip())
 
+    assert type(config["bool_value"]) is bool
     assert type(config["int_value"]) is int
     assert type(config["float_value"]) is float
 
@@ -60,6 +62,7 @@ DICT_VALUE = {
     config["set_value"] = sorted(config["set_value"])
 
     valid_config = {
+        "bool_value": False,
         "int_value": 1,
         "float_value": 3.3,
 
