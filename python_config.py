@@ -9,6 +9,7 @@ _PY2 = sys.version_info < (3,)
 if _PY2:
     str = unicode
 
+
 _BASIC_TYPES = (int, float, bytes, str)
 """Python basic types."""
 
@@ -20,6 +21,7 @@ _COMPLEX_TYPES = (tuple, list, set, dict)
 
 _VALID_TYPES = _BASIC_TYPES + _COMPLEX_TYPES
 """Option value must be one of these types."""
+
 
 
 class Error(Exception):
