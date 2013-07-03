@@ -1,4 +1,3 @@
-%define module_name python_config
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
 # Run tests
@@ -51,9 +50,7 @@ make PYTHON=%__python INSTALL_FLAGS="-O1 --root '%buildroot'" install
 
 %files
 %defattr(-,root,root,-)
-
-%python_sitelib/%module_name.py
-%python_sitelib/%module_name-*.egg-info
+%python_sitelib/python_config*
 
 
 %clean
