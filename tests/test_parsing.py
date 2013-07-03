@@ -45,7 +45,7 @@ DICT_VALUE = {
         "t": [ 1, "two" ],
     },
 }
-    """)
+    """.strip())
 
     assert type(config["int_value"]) is int
     assert type(config["float_value"]) is float
