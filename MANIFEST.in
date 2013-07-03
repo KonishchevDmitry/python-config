@@ -1,6 +1,7 @@
-graft tests
 include ChangeLog
 include INSTALL
 include Makefile
 include python-config.spec
 include README
+include tests/*.conf
+include tests/*.py
