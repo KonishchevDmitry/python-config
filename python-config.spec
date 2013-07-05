@@ -27,6 +27,9 @@ reads only values in uppercase from them, checks that they contain only basic
 Python types and returns a dictionary which corresponds to the configuration
 file.
 
+Note: if you want to validate the configuration values, take a look at
+https://github.com/KonishchevDmitry/object-validator project.
+
 
 %prep
 %setup -n %name-%version -q
