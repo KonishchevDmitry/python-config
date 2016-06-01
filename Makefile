@@ -1,8 +1,9 @@
 .PHONY: build check install dist srpm rpm pypi clean
 
-NAME = python-config
+NAME     = python-config
 RPM_NAME := $(NAME)
-PYTHON := python
+PYTHON   := python
+VERSION  := 0.1.1
 
 build:
 	$(PYTHON) setup.py build
@@ -16,6 +17,10 @@ install:
 dist:
 	$(PYTHON) setup.py sdist
 	mv dist/$(NAME)-*.tar.gz .
+
+sources:
+	@git archive --format=tar --prefix="$(NAME)-$(VERSION)/" \
+		$(shell git rev-parse --verify HEAD) | gzip > $(NAME)-$(VERSION).tar.gz
 
 srpm: dist
 	rpmbuild -bs --define "_sourcedir $(CURDIR)" $(NAME).spec
