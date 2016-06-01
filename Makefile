@@ -1,4 +1,4 @@
-.PHONY: build check install dist srpm rpm pypi clean
+.PHONY: build check install dist sources srpm rpm pypi clean
 
 NAME     = python-config
 RPM_NAME := $(NAME)
