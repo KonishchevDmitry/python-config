@@ -4,7 +4,7 @@
 %global with_check 1
 
 Name:    python-config
-Version: 0.1.1
+Version: 0.1.2
 Release: 1%{?dist}
 Summary: A simple module for reading Python configuration files
 
@@ -61,6 +61,9 @@ make PYTHON=%__python INSTALL_FLAGS="-O1 --root '%buildroot'" install
 
 
 %changelog
+* Mon Dec 12 2016 Dmitry Konishchev <konishchev@gmail.com> - 0.1.2-1
+- New version.
+
 * Wed Jul 03 2013 Dmitry Konishchev <konishchev@gmail.com> - 0.1.1-1
 - New version.
 

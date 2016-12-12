@@ -1,3 +1,8 @@
+Version 0.1.2
+-------------
+ * Fix broken 0.1.1 upload on PyPI
+
+
 Version 0.1.1
 -------------
  * Add missing bool type support
