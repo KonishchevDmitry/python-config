@@ -37,7 +37,7 @@ https://github.com/KonishchevDmitry/object-validator project.}
 
 Name:    python-config
 Version: 0.1.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A simple module for reading Python configuration files
 
 Group:   Development/Libraries
@@ -149,6 +149,9 @@ make PYTHON=%{__python3_other} INSTALL_FLAGS="-O1 --root '%buildroot'" install
 
 
 %changelog
+* Sun Jan 13 2019 Mikhail Ushanov <gm.mephisto@gmail.com> - 0.1.2-2
+- Add python3 package build for EPEL
+
 * Mon Dec 12 2016 Dmitry Konishchev <konishchev@gmail.com> - 0.1.2-1
 - New version.
 
