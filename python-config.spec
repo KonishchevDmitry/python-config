@@ -18,12 +18,7 @@
 %{!?python3_pkgversion: %global python3_pkgversion 3}
 %endif  # with python3
 
-# Temporarily disable tests for python3_other
-%if 0%{with python3_other}
-%bcond_with tests
-%else
 %bcond_without tests
-%endif
 
 %global project_name pcore
 %global project_description %{expand:
