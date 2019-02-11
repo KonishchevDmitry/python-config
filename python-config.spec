@@ -18,12 +18,7 @@
 %{!?python3_pkgversion: %global python3_pkgversion 3}
 %endif  # with python3
 
-# Temporarily disable tests for python3_other
-%if 0%{with python3_other}
-%bcond_with tests
-%else
 %bcond_without tests
-%endif
 
 %global project_name pcore
 %global project_description %{expand:
@@ -37,7 +32,7 @@ https://github.com/KonishchevDmitry/object-validator project.}
 
 Name:    python-config
 Version: 0.1.2
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A simple module for reading Python configuration files
 
 Group:   Development/Libraries
@@ -149,6 +144,9 @@ make PYTHON=%{__python3_other} INSTALL_FLAGS="-O1 --root '%buildroot'" install
 
 
 %changelog
+* Sun Feb 10 2019 Mikhail Ushanov <gm.mephisto@gmail.com> - 0.1.2-3
+- Enable tests for python36
+
 * Sun Jan 13 2019 Mikhail Ushanov <gm.mephisto@gmail.com> - 0.1.2-2
 - Add python3 package build for EPEL
 
